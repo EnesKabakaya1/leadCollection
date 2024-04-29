@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Collection</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="lead-container">
+        <div class="lead-wrapper">
+            <div class="lead-close-box">
+                <button class="lead-close-button">×</button>
+            </div>
+            <div class="lead-right-box">
+                <div class="lead-image-box">
+                    <img src="https://www.arttablo.com/upload/U-sonbahar-ve-yapraklar-doga-manzaralari-kanvas-tablo1455361389-800.jpg"
+                        class="lead-image">
+                </div>
+            </div>
+            <div class="lead-left-box">
+                <div class="lead-contact-box">
+                    <div class="lead-header-box">
+                        <h1>Title</h1>
+                        <p class="lead-short-title">Short Text</p>
+                    </div>
+                    <div class="lead-form-box">
+                        <form id="lead-form">
+                            <div class="lead-form-group">
+                                <input type="text" id="email" name="email" autocomplete="on" placeholder="Email">
+                                <div class="lead-error-message"></div>
+                            </div>
+                            <div class="lead-form-group">
+                                <input type="tel" id="phone" name="phone" autocomplete="on" placeholder="Phone Number">
+                                <div class="lead-error-message"></div>
+                            </div>
+                            <div class="lead-form-group">
+                                <button type="submit" class="lead-submit-button">Be First</button>
+                            </div>
+                            <div class="lead-form-checkbox-group">
+                                <div class="lead-form-GDPR-box">
+                                    <input type="checkbox" name="gdpr" id="GDPR">
+                                    <label for="GDPR" class="lead-GDPR-link">
+                                        <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"
+                                            target="_blank">By submitting this form, you are giving
+                                            consent for you email to
+                                            be used and disclosed.</a>
+                                    </label>
+                                </div>
+                                <div class="lead-error-message"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="lead-coupon-box">
+                    <div class="lead-header-box">
+                        <h1>Amazing!</h1>
+                        <p class="lead-coupon-short-title">
+                            Here is your discount code you can use in your next order. This
+                            coupon will be valid until
+                            01.01.2024</p>
+                    </div>
+                    <div class="lead-coupon-text-box">
+                        <p class="lead-coupon-text"></p>
+                    </div>
+                    <div class="lead-coupon-box-button">
+                        <button class="lead-coupon-copy-button">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.lead-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lead-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.lead-wrapper {
+    width: 700px;
+    height: 400px;
+    display: flex;
+    position: relative;
+}
+
+.lead-close-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lead-close-box button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    font-size: 25px;
+}
+
+.lead-right-box {
+    width: 50%;
+}
+
+.lead-image-box {
+    width: 100%;
+    height: 100%;
+}
+
+.lead-image-box .lead-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lead-left-box {
+    width: 50%;
+    background-color: #ffffff;
+}
+
+.lead-header-box {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lead-short-title,
+.lead-coupon-short-title {
+    text-align: center;
+    padding: 0 10px;
+    color: #000;
+    font-weight: 500;
+}
+
+.lead-short-title {
+    font-size: 15px;
+}
+
+.lead-coupon-short-title {
+    font-size: 12px;
+}
+
+.lead-contact-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.lead-contact-box.lead-contact-box-hidden {
+    display: none;
+}
+
+.lead-form-box {
+    width: 100%;
+    height: 70%;
+}
+
+#lead-form {
+    height: 100%;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lead-form-group {
+    width: 100%;
+    height: 40px;
+}
+
+.lead-form-group:nth-child(1),
+.lead-form-group:nth-child(2) {
+    margin: 0 0 20px 0;
+}
+
+.lead-error-message {
+    width: 100%;
+    height: 20px;
+    color: red;
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 5px;
+    display: flex;
+}
+
+.lead-form-group input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-weight: 700;
+    font-size: 17px;
+    color: #000000;
+}
+
+.lead-submit-button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: #21292b;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.lead-form-checkbox-group {
+    margin: 10px 0 0 0;
+}
+
+.lead-form-GDPR-box {
+    display: flex;
+    gap: 10px;
+}
+
+.lead-form-checkbox-group .lead-GDPR-link {
+    display: flex;
+    font-size: 11px;
+}
+
+.lead-form-checkbox-group .lead-GDPR-link a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.lead-coupon-box {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lead-coupon-box.lead-coupon-box-active {
+    display: flex;
+}
+
+.lead-coupon-text-box {
+    width: 70%;
+    height: 50px;
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed #dee5eb;
+}
+
+.lead-coupon-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+.lead-coupon-box-button {
+    width: 90%;
+    height: 40px;
+}
+
+.lead-coupon-box-button button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: #21292b;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+}
