@@ -20,11 +20,13 @@ app.post('/lead-collection', [
 
     const couponCode = getCouponCode();
 
-    res.status(200).json({ couponCode });
+    setTimeout(() => res.status(200).json({ couponCode }), 2000);
 });
 
-const getCouponCode = () => {
+const getCouponCode = () => {   
     return 'COUPON_2024';
 };
 
-app.listen(PORT, () => console.log(`Server is running http://localhost:${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server is running http://localhost:${ PORT }`);
+});
