@@ -417,11 +417,6 @@
             const emailValue = email.value.trim();
             const phoneValue = phone.value.trim();
 
-            const payload = {
-                email: emailValue,
-                phone: phoneValue
-            }
-
             self.checkInputs();
 
             if (emailValue && phoneValue && GDPR.checked) {
