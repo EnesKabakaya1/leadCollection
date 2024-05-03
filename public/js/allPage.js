@@ -74,7 +74,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 999999;
+            z-index: 2147483647;
         }
         ${ overlay } {
             position: absolute;
