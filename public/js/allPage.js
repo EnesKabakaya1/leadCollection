@@ -40,11 +40,26 @@
         overlay: 'lead-overlay'
     };
 
+    const config = {
+        leadMainImage: 'https://www.arttablo.com/upload/U-sonbahar-ve-yapraklar-doga-manzaralari-kanvas-tablo1455361389-800.jpg',
+        closeIcon: '×',
+        headerText: 'Title',
+        shortHeaderText: 'Short Text',
+        submitButtonText: 'Be First',
+        redirectLink: 'https://en.wikipedia.org/wiki/General_Data_Protection_Regulation',
+        redirectText: 'By submitting this form, you are giving consent for you email to be used and disclosed.',
+        couponHeader: 'Amazing!',
+        couponShortText: 'Here is your discount code you can use in your next order. This coupon will be valid until 01.01.2024',
+        couponButtonText: 'Copy',
+        couponAfterCopyText: 'Copied!',
+    };
+
     const selectors = Object.keys(classes).reduce((createdSelector, key) => (
-        createdSelector[key] = `.${ classes[key] }`, createdSelector
+        createdSelector[key] = `.${classes[key]}`, createdSelector
     ), {});
 
     self.init = () => {
+        self.reset();
         self.buildCSS();
         self.buildHTML();
         self.events();
@@ -53,8 +68,8 @@
     self.reset = () => {
         const { container, style } = selectors;
 
-        document.querySelector(container).remove();
-        document.querySelector(style).remove();
+        document.querySelector(container)?.remove();
+        document.querySelector(style)?.remove();
     };
 
     self.buildCSS = () => {
@@ -65,7 +80,7 @@
             activeLoadingScreen } = selectors;
 
         const leadCSS = `
-        ${ container } {
+        ${container} {
             width: 100vw;
             height: 100vh;
             position: fixed;
@@ -76,7 +91,7 @@
             align-items: center;
             z-index: 2147483647;
         }
-        ${ overlay } {
+        ${overlay} {
             position: absolute;
             top: 0;
             left: 0;
@@ -85,12 +100,12 @@
             background: rgba(0, 0, 0, 0.7);
             z-index: -1;
         }
-        ${ wrapper } {
+        ${wrapper} {
             width: 700px;
             height: 400px;
             display: flex;
         }
-        ${ closeBox } {
+        ${closeBox} {
             position: absolute;
             top: 0;
             right: 0;
@@ -100,7 +115,7 @@
             justify-content: center;
             align-items: center;
         }
-        ${ closeBox } ${ closeButton } {
+        ${closeBox} ${closeButton} {
             border: none;
             background-color: transparent;
             cursor: pointer;
@@ -108,24 +123,24 @@
             font-size: 25px;
             font-weight: 900;
         }
-        ${ rightBox } {
+        ${rightBox} {
             width: 50%;
         }
-        ${ imageBox } {
+        ${imageBox} {
             width: 100%;
             height: 100%;
         }
-        ${ imageBox } ${ image } {
+        ${imageBox} ${image} {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        ${ leftBox } {
+        ${leftBox} {
             position: relative;
             width: 50%;
             background-color: #ffffff;
         }
-        ${ headerBox } {
+        ${headerBox} {
             width: 100%;
             height: 30%;
             display: flex;
@@ -134,27 +149,27 @@
             flex-direction: column;
             margin: 0 0 20px 0;
         }
-        ${ header } {
+        ${header} {
             font-size: 30px;
             font-weight: 700;
             color: #000;
             margin: 0;
         }
-        ${ shortTitle },
-        ${ couponShortTitle } {
+        ${shortTitle},
+        ${couponShortTitle} {
             text-align: center;
             padding: 0 10px;
             color: #000;
             font-weight: 700;
             margin: 0;
         }
-        ${ shortTitle } {
+        ${shortTitle} {
             font-size: 15px;
         }
-        ${ couponShortTitle } {
+        ${couponShortTitle} {
             font-size: 12px;
         }
-        ${ contactBox } {
+        ${contactBox} {
             width: 100%;
             height: 100%;
             display: flex;
@@ -162,26 +177,26 @@
             justify-content: flex-end;
             align-items: center;
         }
-        ${ contactBox }${ contactBoxHidden } {
+        ${contactBox}${contactBoxHidden} {
             display: none;
         }
-        ${ formBox } {
+        ${formBox} {
             width: 100%;
             height: 70%;
         }
-        ${ leadForm } {
+        ${leadForm} {
             height: 100%;
             padding: 0 30px;
         }
-        ${ formGroup } {
+        ${formGroup} {
             width: 100%;
             height: 40px;
         }
-        ${ formGroup }:nth-child(1),
-        ${ formGroup }:nth-child(2) {
+        ${formGroup}:nth-child(1),
+        ${formGroup}:nth-child(2) {
             margin: 0 0 20px 0;
         }
-        ${ errorMessage } {
+        ${errorMessage} {
             width: 100%;
             height: 20px;
             color: red;
@@ -190,7 +205,7 @@
             padding-left: 5px;
             display: flex;
         }
-        ${ formGroup } input {
+        ${formGroup} input {
             width: 100%;
             height: 100%;
             border: 1px solid #e6e6e6;
@@ -201,7 +216,7 @@
             font-size: 17px;
             color: #000000;
         }
-        ${ submitButton } {
+        ${submitButton} {
             width: 100%;
             height: 100%;
             border: none;
@@ -214,35 +229,36 @@
             font-weight: 500;
             text-transform: uppercase;
         }
-        ${ checkboxGroup } {
+        ${checkboxGroup} {
             margin: 10px 0 0 0;
         }
-        ${ GDPRBox } {
+        ${GDPRBox} {
             display: flex;
             gap: 10px;
         }
-        ${ checkboxGroup } ${ GDPRLink } {
+        ${checkboxGroup} ${GDPRLink} {
             display: flex;
             font-size: 11px;
         }
-        ${ checkboxGroup } ${ GDPRLink } a {
+        ${checkboxGroup} ${GDPRLink} a {
             color: #000;
             text-decoration: none;
             font-weight: 600;
         }
-        ${ couponBox } {
+        ${couponBox} {
             width: 100%;
             height: 100%;
             display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 30px;
         }
-        ${ couponBox }${ couponBoxActive } {
+        ${couponBox}${couponBoxActive} {
             display: flex;
         }
-        ${ couponTextBox } {
-            width: 60%;
+        ${couponTextBox} {
+            width: 80%;
             height: 40px;
             margin: 30px 0;
             display: flex;
@@ -250,17 +266,17 @@
             align-items: center;
             border: 3px dashed #dee5eb;
         }
-        ${ couponText } {
+        ${couponText} {
             font-size: 20px;
             font-weight: 700;
             color: #000;
             margin: 0;
         }
-        ${ couponCopyButtonContainer } {
-            width: 80%;
+        ${couponCopyButtonContainer} {
+            width: 100%;
             height: 40px;
         }
-        ${ couponCopyButtonContainer } ${ couponCopyButton } {
+        ${couponCopyButtonContainer} ${couponCopyButton} {
             width: 100%;
             height: 100%;
             border: none;
@@ -273,17 +289,17 @@
             font-weight: 500;
             text-transform: uppercase;
         }
-        ${ loadingScreenContainer } {
+        ${loadingScreenContainer} {
             width: 100%;
             height: 100%;
             display: none;
             justify-content: center;
             align-items: center;
         }
-        ${ loadingScreenContainer }${ activeLoadingScreen } {
+        ${loadingScreenContainer}${activeLoadingScreen} {
             display: flex;
         }
-        ${ loadingScreen } { 
+        ${loadingScreen} { 
             display: inline-block;
             width: 50px;
             height: 50px;
@@ -297,23 +313,25 @@
             transform: rotate(360deg);
             }
         }
-        @media (max-width: 768px) {
-            ${ wrapper } {
+        @media only screen and (max-width: 480px) {
+            ${wrapper} {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
                 height: auto;
+                padding: 0 20px;
             }
-            ${ rightBox } {
+            ${rightBox},
+            ${leftBox} {
                 width: 100%;
-                height: 35%;
             }
-            ${ leftBox } {
-                width: 100%;
-                height: 35%;
+            ${loadingScreenContainer} {
+                height: 300px;
             }
-            ${ formBox } {
-                height: 100%;
+        }
+        @media screen and (orientation: landscape) and (max-width: 1200px) {
+            ${wrapper} {
+                padding: 30px;
             }
         }`;
 
@@ -327,73 +345,69 @@
     self.buildHTML = () => {
         const { container, wrapper, closeBox, closeButton, rightBox, imageBox, image, leftBox, headerBox, header,
             shortTitle, contactBox, formBox, leadForm, formGroup, errorMessage, submitButton, checkboxGroup, GDPRBox,
-            GDPRLink, couponBox, couponTextBox, couponText, couponCopyButton, leadEmail, leadPhone, leadGDPR, overlay, 
+            GDPRLink, couponBox, couponTextBox, couponText, couponCopyButton, leadEmail, leadPhone, leadGDPR, overlay,
             couponCopyButtonContainer, loadingScreen, loadingScreenContainer } = classes;
 
+        const { leadMainImage, closeIcon, headerText, shortHeaderText, submitButtonText, redirectLink, redirectText,
+            couponHeader, couponShortText, couponButtonText } = config;
+
         const leadHtml = `
-        <div class="${ container }">
-            <div class="${ overlay }"></div>
-            <div class="${ wrapper }">
-                <div class="${ rightBox }">
-                    <div class="${ imageBox }">
-                        <img src="https://www.arttablo.com/upload/U-sonbahar-ve-yapraklar-doga-manzaralari-kanvas-tablo1455361389-800.jpg" 
-                            class="${ image }">
+        <div class="${container}">
+            <div class="${overlay}"></div>
+            <div class="${wrapper}">
+                <div class="${rightBox}">
+                    <div class="${imageBox}">
+                        <img src="${leadMainImage}" class="${image}">
                     </div>
                 </div>
-                <div class="${ leftBox }">
-                    <div class="${ closeBox }">
-                        <button class="${ closeButton }">×</button>
+                <div class="${leftBox}">
+                    <div class="${closeBox}">
+                        <button class="${closeButton}">${closeIcon}</button>
                     </div>
-                    <div class="${ contactBox }">
-                        <div class="${ headerBox }">
-                            <h1 class="${ header }">Title</h1>
-                            <p class="${ shortTitle }">Short Text</p>
+                    <div class="${contactBox}">
+                        <div class="${headerBox}">
+                            <h1 class="${header}">${headerText}</h1>
+                            <p class="${shortTitle}">${shortHeaderText}</p>
                         </div>
-                        <div class="${ formBox }">
-                            <form class="${ leadForm }">
-                                <div class="${ formGroup }">
-                                    <input type="email" class="${ leadEmail }" name="email" autocomplete="on" placeholder="Email">
-                                    <div class="${ errorMessage }"></div>
+                        <div class="${formBox}">
+                            <form class="${leadForm}">
+                                <div class="${formGroup}">
+                                    <input type="email" class="${leadEmail}" name="email" autocomplete="on" placeholder="Email">
+                                    <div class="${errorMessage}"></div>
                                 </div>
-                                <div class="${ formGroup }">
-                                    <input type="tel" class="${ leadPhone }" name="phone" autocomplete="on" placeholder="Phone Number">
-                                    <div class="${ errorMessage }"></div>
+                                <div class="${formGroup}">
+                                    <input type="tel" class="${leadPhone}" name="phone" autocomplete="on" placeholder="Phone Number">
+                                    <div class="${errorMessage}"></div>
                                 </div>
-                                <div class="${ formGroup }">
-                                    <button type="submit" class="${ submitButton }">Be First</button>
+                                <div class="${formGroup}">
+                                    <button type="submit" class="${submitButton}">${submitButtonText}</button>
                                 </div>
-                                <div class="${ checkboxGroup }">
-                                    <div class="${ GDPRBox }">
-                                        <input type="checkbox" name="gdpr" class="${ leadGDPR }">
-                                        <div class="${ GDPRLink }">
-                                            <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"
-                                                target="_blank">By submitting this form, you are giving
-                                                consent for you email to
-                                                be used and disclosed.</a>
+                                <div class="${checkboxGroup}">
+                                    <div class="${GDPRBox}">
+                                        <input type="checkbox" name="gdpr" class="${leadGDPR}">
+                                        <div class="${GDPRLink}">
+                                            <a href="${redirectLink}"target="_blank">${redirectText}</a>
                                         </div>
                                     </div>
-                                    <div class="${ errorMessage }"></div>
+                                    <div class="${errorMessage}"></div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="${ couponBox }">
+                    <div class="${couponBox}">
                         <div class="lead-header-box">
-                            <h1 class="lead-header">Amazing!</h1>
-                            <p class="lead-coupon-short-title">
-                                Here is your discount code you can use in your next order. This
-                                coupon will be valid until
-                                01.01.2024</p>
+                            <h1 class="lead-header">${couponHeader}</h1>
+                            <p class="lead-coupon-short-title">${couponShortText}</p>
                         </div>
-                        <div class="${ couponTextBox }">
-                            <p class="${ couponText }"></p>
+                        <div class="${couponTextBox}">
+                            <p class="${couponText}"></p>
                         </div>
-                        <div class="${ couponCopyButtonContainer }">
-                            <button class="${ couponCopyButton }">Copy</button>
+                        <div class="${couponCopyButtonContainer}">
+                            <button class="${couponCopyButton}">${couponButtonText}</button>
                         </div>
                     </div>
-                    <div class="${ loadingScreenContainer }">
-                        <div class="${ loadingScreen }"></div>
+                    <div class="${loadingScreenContainer}">
+                        <div class="${loadingScreen}"></div>
                     </div>
                 </div>
             </div>
@@ -404,8 +418,9 @@
 
     self.events = () => {
         const { leadForm, leadEmail, leadPhone, leadGDPR, loadingScreenContainer, contactBox, couponCopyButton,
-            couponText, closeButton, overlay} = selectors;
+            couponText, closeButton, overlay } = selectors;
         const { activeLoadingScreen, contactBoxHidden } = classes;
+        const { couponAfterCopyText, couponButtonText } = config;
 
         document.querySelector(leadForm).addEventListener('submit', (event) => {
             event.preventDefault();
@@ -417,13 +432,18 @@
             const emailValue = email.value.trim();
             const phoneValue = phone.value.trim();
 
+            const payload = {
+                email: emailValue,
+                phone: phoneValue,
+            };
+
             self.checkInputs();
 
             if (emailValue && phoneValue && GDPR.checked) {
                 document.querySelector(loadingScreenContainer).classList.add(activeLoadingScreen);
                 document.querySelector(contactBox).classList.add(contactBoxHidden);
 
-                self.postData('http://localhost:4000/lead-collection', { email: emailValue, phone: phoneValue }).then(({ errors, couponCode }) => {
+                self.postData('http://localhost:4000/lead-collection', payload).then(({ errors, couponCode }) => {
                     document.querySelector(loadingScreenContainer).classList.remove(activeLoadingScreen);
 
                     if (errors === 'Invalid Data') {
@@ -450,14 +470,13 @@
 
         document.querySelector(couponCopyButton).addEventListener('click', () => {
             const copyButton = document.querySelector(couponCopyButton);
-            const coupons = document.querySelector(couponText);
 
-            navigator.clipboard.writeText(coupons.innerText);
+            navigator.clipboard.writeText(document.querySelector(couponText).innerText);
 
-            copyButton.innerText = 'Copied!';
+            copyButton.innerText = couponAfterCopyText;
 
             setTimeout(() => {
-                copyButton.innerText = 'Copy';
+                copyButton.innerText = couponButtonText;
             }, 2000);
         });
 
@@ -466,17 +485,12 @@
     };
 
     self.showCouponPage = (coupons) => {
-        const { contactBox, couponBox, couponText} = selectors;
+        const { contactBox, couponBox, couponText } = selectors;
         const { couponBoxActive, contactBoxHidden } = classes;
 
-        const contact = document.querySelector(contactBox);
-        const coupon = document.querySelector(couponBox);
-        const couponValue = document.querySelector(couponText);
-
-        coupon.classList.add(couponBoxActive);
-        contact.classList.add(contactBoxHidden);
-
-        couponValue.innerText = coupons;
+        document.querySelector(couponBox).classList.add(couponBoxActive);
+        document.querySelector(contactBox).classList.add(contactBoxHidden);
+        document.querySelector(couponText).innerText = coupons;
     };
 
     self.postData = async (url = '', data = {}) => {
@@ -494,44 +508,24 @@
     self.checkInputs = () => {
         const { leadEmail, leadPhone, leadGDPR, GDPRBox } = selectors;
 
-        const email = document.querySelector(leadEmail);
-        const phone = document.querySelector(leadPhone);
-        const GDPR = document.querySelector(leadGDPR);
-        const GDPRContainer = document.querySelector(GDPRBox);
+        const getSelector = (selector) => document.querySelector(selector);
 
-        const emailValue = email.value.trim();
-        const phoneValue = phone.value.trim();
-
-        if (emailValue === '') {
-            self.setErrorFor(email, 'Email cannot be blank');
-        } else {
-            self.setSuccessFor(email);
-        }
-
-        if (phoneValue === '') {
-            self.setErrorFor(phone, 'Phone cannot be blank');
-        } else {
-            self.setSuccessFor(phone);
-        }
-
-        if (!GDPR.checked) {
-            self.setErrorFor(GDPRContainer, 'You must agree to the terms and conditions');
-        } else {
-            self.setSuccessFor(GDPRContainer);
-        }
+        self.checkInputsConditional(getSelector(leadEmail), getSelector(leadEmail).value.trim() === '', 'Email cannot be blank');
+        self.checkInputsConditional(getSelector(leadPhone), getSelector(leadPhone).value.trim() === '', 'Phone cannot be blank');
+        self.checkInputsConditional(getSelector(GDPRBox), !getSelector(leadGDPR).checked, 'You must accept terms and conditions');
     };
 
-    self.setErrorFor = (input, message) => {
-        const formControl = input.nextElementSibling;
-
-        formControl.innerText = message;
-    };
-
-    self.setSuccessFor = (input) => {
-        const formControl = input.nextElementSibling;
-
-        formControl.innerText = '';
+    self.checkInputsConditional = (input, condition, message) => {
+        if (condition) {
+            self.setErrorFor(input, message);
+        } else {
+            self.setSuccessFor(input);
+        }
     }
+
+    self.setErrorFor = (input, message) => input.nextElementSibling.innerText = message;
+
+    self.setSuccessFor = (input) => input.nextElementSibling.innerText = '';
 
     self.isEmail = (email) => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 
